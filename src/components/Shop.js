@@ -6,7 +6,19 @@ import UserItem from './user/UserItem';
 export class Shop extends Component {
 
   componentDidMount(){
-    this.props.listFollowers('plowzzer')
+    if(this.props.newUser){
+      this.props.listFollowers(this.props.newUser)
+    } else {
+      this.props.listFollowers('plowzzer')
+    }
+  }
+
+  componentWillReceiveProps(){
+    if(this.props.newUser){
+      this.props.listFollowers(this.props.newUser)
+    } else {
+      this.props.listFollowers('plowzzer')
+    }
   }
 
   render() {

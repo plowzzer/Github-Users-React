@@ -5,6 +5,11 @@ import { Link } from 'react-router';
 
 export class Header extends Component{
 
+  componentWillMount(){
+    const userList = localStorage.getItem('userList')
+    this.user = this.props.getShoppingList(userList)
+  }
+
   render(){
     return(
       <div className="header">
@@ -46,6 +51,7 @@ export class Header extends Component{
 }
 
 
+
 const mapStateToProps = state => {
   return {users : state.header}
 };
@@ -54,6 +60,9 @@ const mapDispatchToProps = dispatch => {
   return {
     shoppingList : (username) =>{
       dispatch(ShopAPI.shoppingList(username))
+    },
+    getShoppingList : (userList) =>{
+      dispatch(ShopAPI.getShoppingList(userList))
     }
   }
 }

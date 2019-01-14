@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router';
 
 class UserHeader extends Component {
   render(){
@@ -9,19 +10,11 @@ class UserHeader extends Component {
             <img className="uk-border-circle" width="40" height="40" src={this.props.follower.avatar_url} alt={this.props.follower.login}/>
           </div>
           <div className="uk-width-expand">
-            <h4 className="uk-card-title uk-margin-remove-bottom">{this.props.follower.login}</h4>
+            <h4 className="uk-card-title uk-margin-remove-bottom">
+              <Link to={'/user/'+this.props.follower.login}>{this.props.follower.login}</Link>
+            </h4>
           </div>
         </div>
-      </div>
-    )
-  }
-}
-
-class UserBody extends Component{
-  render(){
-    return(
-      <div className="uk-card-body">
-        <p>{this.props.follower.login}</p>
       </div>
     )
   }
@@ -50,7 +43,6 @@ export default class UserItem extends Component {
       <div>
         <div className="uk-card uk-card-default">
           <UserHeader follower={this.props.follower}/>
-          <UserBody follower={this.props.follower}/>
           <UserFooter follower={this.props.follower} shoppingList={this.props.shoppingList}/>
         </div>
       </div>

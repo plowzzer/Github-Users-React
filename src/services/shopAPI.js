@@ -1,6 +1,6 @@
 import {APIURL} from "./urlsAPI";
 
-import {listFollowers, getUser, updateShoppingList} from "../actions/actionCreator"
+import {listFollowers, getUser, updateShoppingList, getShoppingList} from "../actions/actionCreator"
 
 export default class ShopAPI {
   static getUser(username){
@@ -28,6 +28,13 @@ export default class ShopAPI {
   static shoppingList(users){
     return dispatch => {
       dispatch(updateShoppingList(users))
+      return users
+    }
+  }
+
+  static getShoppingList(users){
+    return dispatch => {
+      dispatch(getShoppingList(users))
       return users
     }
   }

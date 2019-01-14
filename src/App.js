@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
 
 import Header from './components/Header'
 import UserDetails from './components/user/UserDetails'
@@ -12,8 +10,8 @@ class App extends Component {
       <div id="root">
         <div className="main">
           <Header/>
-          <UserDetails/>
-          <Shop/>
+          <UserDetails newUser={this.props.params.login}/>
+          <Shop newUser={this.props.params.login}/>
         </div>
       </div>
     );

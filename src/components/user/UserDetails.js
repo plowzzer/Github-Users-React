@@ -5,7 +5,19 @@ import {connect} from 'react-redux'
 export class UserDetails extends Component {
 
   componentDidMount(){
-    this.props.getUser('plowzzer')
+    if(this.props.newUser){
+      this.props.getUser(this.props.newUser)
+    } else {
+      this.props.getUser('plowzzer')
+    }
+  }
+
+  componentWillReceiveProps(){
+    if(this.props.newUser){
+      this.props.getUser(this.props.newUser)
+    } else {
+      this.props.getUser('plowzzer')
+    }
   }
 
   render(){

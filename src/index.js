@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Cart from './components/Cart'
 import * as serviceWorker from './serviceWorker';
 import {Router,Route,browserHistory} from 'react-router';
 
@@ -21,6 +22,8 @@ ReactDOM.render(
 		<Provider store={store}>
 			<Router history={browserHistory}>
 				<Route path="/" component={App}></Route>
+				<Route path="/user(/:login)" component={App}></Route>
+				<Route path="/cart" component={Cart}></Route>
 			</Router>
 		</Provider>
 	), document.getElementById('root')

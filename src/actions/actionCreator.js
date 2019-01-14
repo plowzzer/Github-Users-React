@@ -10,6 +10,10 @@ export function updateShoppingList(user){
   return{type:'UPDATE_LIST', user}
 }
 
+export function getShoppingList(users){
+  return{type: 'GET_SHOPPING_LIST', users}
+}
+
 export function notificationAlert(message){
   return {type:'NOTIFICATION', message}
 }
