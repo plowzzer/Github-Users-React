@@ -16,8 +16,8 @@ export class Header extends Component{
         <nav className="uk-navbar-container uk-container" data-uk-navbar>
           <div className="uk-navbar-left">
             <ul className="uk-navbar-nav">
-              <li>Esquerdo 1</li>
-              <li>Esquerdo 2</li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/cart">Cart</Link></li>
             </ul>
           </div>
 
@@ -49,8 +49,6 @@ export class Header extends Component{
     );
   }
 }
-
-
 
 const mapStateToProps = state => {
   return {users : state.header}

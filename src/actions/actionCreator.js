@@ -17,3 +17,7 @@ export function getShoppingList(users){
 export function notificationAlert(message){
   return {type:'NOTIFICATION', message}
 }
+
+export function getUserDetails(userList){
+  return {type:'GET_USER_DETAILS', userList}
+}

@@ -18,8 +18,5 @@ class App extends Component {
   }
 }
 
-// App.contextType = {
-//   store: React.PropTypes.object.isRequired
-// }
 
 export default App;

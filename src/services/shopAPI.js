@@ -1,6 +1,5 @@
 import {APIURL} from "./urlsAPI";
-
-import {listFollowers, getUser, updateShoppingList, getShoppingList} from "../actions/actionCreator"
+import {listFollowers, getUser, updateShoppingList, getShoppingList, getUserDetails} from "../actions/actionCreator"
 
 export default class ShopAPI {
   static getUser(username){
@@ -36,6 +35,24 @@ export default class ShopAPI {
     return dispatch => {
       dispatch(getShoppingList(users))
       return users
+    }
+  }
+
+
+  static getUserDetails(userList){
+    return dispatch => {
+      // console.log(JSON.parse(userList))
+      let newList = userList
+      let fetchList = []
+      newList.forEach(username => {
+        fetchList.push(fetch(APIURL.env + 'users/' + username).then(response => response.json()))
+      });
+
+      Promise.all(fetchList)
+        .then(res => {
+          dispatch(getUserDetails(res))
+          return res
+        })
     }
   }
 

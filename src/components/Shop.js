@@ -24,7 +24,7 @@ export class Shop extends Component {
   render() {
     return(
       <div className="uk-container">
-        <h1 className="uk-text-center">Plowzzer Followers</h1>
+        <h1 className="uk-text-center">User Followers</h1>
         <div className="shop uk-child-width-1-2 uk-child-width-1-3@m uk-margin" data-uk-grid>
           {
             this.props.followers.map(follower => {

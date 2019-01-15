@@ -23,8 +23,6 @@ class UserHeader extends Component {
 class UserFooter extends Component{
 
   buy(event) {
-    event.preventDefault();
-    //this.props.follower.login
     this.props.shoppingList(this.props.follower.login)
   }
 

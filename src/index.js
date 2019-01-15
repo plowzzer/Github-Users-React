@@ -13,8 +13,9 @@ import { Provider } from 'react-redux';
 import { header } from './reducers/header.reducer'
 import { shop } from './reducers/shop.reducer'
 import { user } from './reducers/user.reducer'
+import { cart } from './reducers/cart.reducer'
 
-const reducers = combineReducers({header, shop, user})
+const reducers = combineReducers({header, shop, user, cart})
 const store = createStore(reducers,applyMiddleware(thunkMiddleware))
 
 ReactDOM.render(

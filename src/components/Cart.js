@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
 
-import Header from './Header'
+import ShopAPI from '../services/shopAPI';
+import {connect} from 'react-redux';
 
-class Cart extends Component {
+import Header from './Header'
+import CartDetails from './cart/CartDetails'
+
+export class Cart extends Component {
+
+  componentDidMount(){
+    // console.log(this)
+    const userList = JSON.parse(localStorage.getItem('userList'))
+    this.props.getUsersDetails(userList)
+  }
+
   render() {
     return (
       <div id="root">
         <div className="main">
           <Header/>
+          <CartDetails users={this.props.users} getUserList={this.props.getUserList}/>
         </div>
       </div>
     );
   }
 }
 
-// App.contextType = {
-//   store: React.PropTypes.object.isRequired
-// }
+const mapStateToProps = state => {
+  return {users : state.cart, usersHeader : state.header}
+};
 
-export default Cart;
+const mapDispatchToProps = dispatch => {
+  return {
+    getUsersDetails : (userList) => {
+      dispatch(ShopAPI.getUserDetails(userList))
+    }
+  }
+}
+
+const CartContainer = connect(mapStateToProps,mapDispatchToProps)(Cart);
+
+export default CartContainer
