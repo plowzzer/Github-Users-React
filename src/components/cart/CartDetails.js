@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 
 export default class CartDetails extends Component {
 
-  remove(event){
-    console.log(this)
+  remove(user){
+    this.props.removeUserFromList(user)
   }
-
+  
   render(){
+
+    
     return(
       <div>
         <div className="uk-container uk-margin-large">
@@ -30,7 +32,7 @@ export default class CartDetails extends Component {
                           <p>Public Gists: {user.public_gists}</p>
                           <p>Location: {user.location}</p>
                         </div>
-                        <button onClick={this.remove.bind(this)}> remove </button>
+                        <button onClick={() => this.remove(user.login)}> remove </button>
                       </div>
                     </div>
                   </div>

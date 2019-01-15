@@ -10,8 +10,10 @@ export class Cart extends Component {
 
   componentDidMount(){
     // console.log(this)
-    const userList = JSON.parse(localStorage.getItem('userList'))
-    this.props.getUsersDetails(userList)
+    if(localStorage.getItem('userList')){
+      const userList = JSON.parse(localStorage.getItem('userList'))
+      this.props.getUsersDetails(userList)
+    }
   }
 
   render() {
@@ -19,7 +21,7 @@ export class Cart extends Component {
       <div id="root">
         <div className="main">
           <Header/>
-          <CartDetails users={this.props.users} getUserList={this.props.getUserList}/>
+          <CartDetails users={this.props.users} getUserList={this.props.getUserList} removeUserFromList={this.props.removeUserFromList}/>
         </div>
       </div>
     );
@@ -34,6 +36,9 @@ const mapDispatchToProps = dispatch => {
   return {
     getUsersDetails : (userList) => {
       dispatch(ShopAPI.getUserDetails(userList))
+    },
+    removeUserFromList : (user) => {
+      dispatch(ShopAPI.removeUserFromList(user))
     }
   }
 }

@@ -21,13 +21,15 @@ export function header(state=[], action){
 
   if(action.type === 'GET_SHOPPING_LIST'){
     let userList=[]
-    const myusers = JSON.parse(action.users)
+    if(action.users){
+      const myusers = JSON.parse(action.users)
 
-    myusers.forEach(element => {
-      userList.push(element)
-    });
-    
-    return userList
+      myusers.forEach(element => {
+        userList.push(element)
+      });
+      
+      return userList
+    }else{return state}
   }
 
   return state

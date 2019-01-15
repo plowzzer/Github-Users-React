@@ -21,3 +21,7 @@ export function notificationAlert(message){
 export function getUserDetails(userList){
   return {type:'GET_USER_DETAILS', userList}
 }
+
+export function removeUserFromList(user){
+  return {type: 'REMOVING_USER_FROM_LIST', user}
+}

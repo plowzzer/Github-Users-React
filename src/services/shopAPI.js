@@ -1,5 +1,5 @@
 import {APIURL} from "./urlsAPI";
-import {listFollowers, getUser, updateShoppingList, getShoppingList, getUserDetails} from "../actions/actionCreator"
+import {listFollowers, getUser, updateShoppingList, getShoppingList, getUserDetails, removeUserFromList} from "../actions/actionCreator"
 
 export default class ShopAPI {
   static getUser(username){
@@ -53,6 +53,13 @@ export default class ShopAPI {
           dispatch(getUserDetails(res))
           return res
         })
+    }
+  }
+  
+  static removeUserFromList(user){
+    return dispatch => {
+      dispatch(removeUserFromList(user))
+      return user
     }
   }
 
